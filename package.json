@@ -2,13 +2,10 @@
   "name": "social_network_api",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node index.js",
-    "dev": "nodemon index.js",
-    "seed": "node utils/seed"
-
+    "start": "node server.js"
   },
   "repository": {
     "type": "git",
@@ -22,8 +19,8 @@
   },
   "homepage": "https://github.com/Cableman687/social_network_api#readme",
   "dependencies": {
-    "express": "^4.18.2",
-    "mongoose": "^7.0.3"
+    "express": "^4.17.1",
+    "mongoose": "^6.9.2"
   },
   "devDependencies": {
     "nodemon": "^2.0.22"

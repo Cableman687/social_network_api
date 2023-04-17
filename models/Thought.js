@@ -1,37 +1,12 @@
-const {Schema , model} = require('mongoose');
-
-const reactionSchema = new Schema(
-    {
-        reactionId: {
-            type: Schema.Types.ObjectId,
-            default: () => new Types.ObjectId(),
-        },
-        reactionBody: {
-            String,
-            required: true,
-            maxLength: 280,
-        },
-        username:{
-            String,
-            required: true,
-        },
-        createdAt: {
-            type: Date,
-            default: Date.now(),
-            get: (date) => timeSince(date)
-        }
-    },
-    {
-        timestamps: true,
-        toJSON: { getters: true, virtuals: true },
-    }
-)
+const connection = require('../config/connection');
+const {Schema , model } = require('mongoose');
+const Reaction = require('./Reaction');
 
 
 const thoughtSchema = new Schema(
     {
         thoughtText: {
-            String,
+            type: String,
             required: true,
             minLength: 1,
             maxLength: 280,
@@ -39,15 +14,15 @@ const thoughtSchema = new Schema(
         createdAt: {
             type: Date,
             default: Date.now(),
-            get: (date) => timeSince(date)
+            // get: (date) => timeSince(date)
         },
         username: [ 
             {
-                String,
+                type: String,
                 required: true,
             },
         ],
-        reactions: [ reactionSchema ]
+        reactions: [ Reaction ]
     },
     {
         timestamps: true,
@@ -56,6 +31,20 @@ const thoughtSchema = new Schema(
 );
 
 
-const Thought = model('thought', thoughtSchema);
+const Thought = model('Thought', thoughtSchema);
+
+
+// connection.once('open', async () => {
+    
+  
+//     await Thought.collection.insertMany([
+//         {username: "Bob", email: "bob@gmail.com", thoughtText: "Bob likes this post"},
+//         {username: "Frank", email: "frank@gmail.com", thoughtText: "Frank thinks this post is great!"},
+//         {username: "Harry", email: "harry@gmail.com", thoughtText: "Harry thinks birds fly really high"},
+//     ]);
+
+// });
+
+
 
 module.exports = Thought;
