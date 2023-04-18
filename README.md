@@ -21,7 +21,7 @@ https://docs.insomnia.rest/insomnia/install
 
 4) Run npm install
 
-Dependencies: \
+Dependencies:
 - express: ^4.17.1
 - mongoose: ^6.9.2
 
@@ -30,7 +30,7 @@ Dependencies: \
 Explore the app by running the various queries found in the 'thoughtRoutes.js' and 'userRoutes.js' files. This can be done by opening Insomnia, and updating the query bar with the query that corresponds to the search that you wish to make.\
 E.g. View All Users (GET): http://localhost:3001/api/users
 
-Walkthrough Video:\
+Walkthrough Video:
 https://drive.google.com/file/d/1h_G5TUGfomILQ0XpXj0AON8vHu_bKsJ5/view
 
 ## License
