@@ -50,9 +50,9 @@ connection.once('open', async () => {
     
   
     await User.collection.insertMany([
-        {username: "Bob", email: "bob@gmail.com"},
         {username: "Frank", email: "frank@gmail.com"},
         {username: "Harry", email: "harry@gmail.com"},
+        {username: "Bob", email: "bob@gmail.com"},
     ]);
   
 

@@ -33,18 +33,4 @@ const thoughtSchema = new Schema(
 
 const Thought = model('Thought', thoughtSchema);
 
-
-// connection.once('open', async () => {
-    
-  
-//     await Thought.collection.insertMany([
-//         {username: "Bob", email: "bob@gmail.com", thoughtText: "Bob likes this post"},
-//         {username: "Frank", email: "frank@gmail.com", thoughtText: "Frank thinks this post is great!"},
-//         {username: "Harry", email: "harry@gmail.com", thoughtText: "Harry thinks birds fly really high"},
-//     ]);
-
-// });
-
-
-
 module.exports = Thought;
