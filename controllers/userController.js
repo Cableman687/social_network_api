@@ -20,9 +20,16 @@ module.exports = {
     },
     // Create a new User
     createUser(req, res) {
-        User.create(req.body)
-          .then((user) => res.json(user))
-          .catch((err) => res.status(500).json(err));
+      User.findOne({ username: req.body.username })
+        .then((user) => {
+          if (user) {
+            return res.status(400).json({ message: 'Username already exists' });
+          } else {
+            User.create(req.body)
+              .then((dbUserData) => res.json(dbUserData))
+              .catch((err) => res.status(500).json(err));
+          }
+        }).catch((err) => res.status(500).json(err));
     },
     // Update existing user
     updateUser(req, res) {
